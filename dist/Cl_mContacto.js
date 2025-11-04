@@ -34,7 +34,7 @@ export default class Cl_mContacto {
         if (this._telefono.length !== 11 || // 04147894563
             !operadores.includes(this._telefono.substring(0, 4)) ||
             isNaN(+this._telefono)) {
-            return "El número de teléfono es inválido.";
+            return "El teléfono es inválido.";
         }
         return false;
     }
