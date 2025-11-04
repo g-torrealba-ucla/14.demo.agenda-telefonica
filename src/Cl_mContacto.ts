@@ -48,7 +48,7 @@ export default class Cl_mContacto {
       !operadores.includes(this._telefono.substring(0, 4)) ||
       isNaN(+this._telefono)
     ) {
-      return "El número de teléfono es inválido.";
+      return "El teléfono es inválido.";
     }
     return false;
   }
