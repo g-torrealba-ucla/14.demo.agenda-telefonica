@@ -19,7 +19,9 @@
 
 import Cl_controlador from "./Cl_controlador.js";
 import Cl_mAgenda from "./Cl_mAgenda.js";
+import Cl_mContacto from "./Cl_mContacto.js";
 import Cl_vAgenda from "./Cl_vAgenda.js";
+import { dtContactos } from "./data/dtContactos.js";
 
 export default class Cl_index {
   public modelo: Cl_mAgenda;
@@ -29,6 +31,14 @@ export default class Cl_index {
     this.vista = new Cl_vAgenda();
     let controlador = new Cl_controlador(this.modelo, this.vista);
     this.vista.controlador = controlador;
+    dtContactos.forEach((contacto) => {
+      this.modelo.agregarContacto({
+        contacto: new Cl_mContacto(contacto),
+        callback: (error) => {
+          console.log(error);
+        },
+      });
+    });
     this.vista.refresh();
   }
 }
